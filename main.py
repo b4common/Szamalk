@@ -106,7 +106,7 @@ while (True) :
     except ValueError:
         print("Helytelen választás vagy nem Szám van megadva!!!")
     valasztas = int(valasztas)
-    while (valasztas != None) :
+    while (valasztas != None and valasztas < 5) :
         if valasztas == 1:
             # print('Ön a négyzet kerület, terület számítását választotta,')
             print(szöveg1, 'négyzet', szöveg2)
@@ -141,9 +141,8 @@ while (True) :
             T = r ** 2 * math.pi
             print('A kör kerülete:', round(K, 4), 'területe:', round(T, 4))
             break
-        else:
-            print('Nem választotta egyik lehetőséget sem !!!')
-            break
+    if valasztas > 5 :
+        print('Nem választotta egyik lehetőséget sem !!!')
     if valasztas == 5:
         print("Ön kilépett a programból!")
         break
