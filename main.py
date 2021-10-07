@@ -106,7 +106,7 @@ while (True) :
     except ValueError:
         print("Helytelen választás vagy nem Szám van megadva!!!")
     valasztas = int(valasztas)
-    while (valasztas < 5) :
+    while (valasztas != None) :
         if valasztas == 1:
             # print('Ön a négyzet kerület, terület számítását választotta,')
             print(szöveg1, 'négyzet', szöveg2)
