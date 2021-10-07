@@ -84,6 +84,15 @@ teljes_nev = vezetek + "  " + kereszt
 print("",teljes_nev )
 '''
 import math
+def Checking(i):
+    i = input("Válasszon: ")
+    try :
+        y = math.floor(float(i))
+        return y
+    except:
+        print("Helytelen tipus!!!")
+
+
 while (True) :
     szöveg1 = 'Ön a'
     szöveg2 = 'kerület, terület számítását választotta,'
@@ -94,14 +103,16 @@ while (True) :
     print('  Rombusz kerülete, területe --> 3')
     print('  Kör kerülete, területe --> 4')
     print("  Kilépés --> 5")
-    valasztas = input('Válasszon: ') 
-    try :
-        int(valasztas)
-    except ValueError:
-        print("Helytelen választás vagy nem Szám van megadva!!!")
-    valasztas = int(valasztas)
-    while (valasztas != None) :
-        if valasztas == 1:
+    i = 0
+    helyes_valasz = Checking(i)
+
+    if helyes_valasz > 5 :
+        print('Nem választotta egyik lehetőséget sem !!!')
+    if helyes_valasz == 5:
+        print("Ön kilépett a programból!")
+        break
+    while (helyes_valasz != None) :
+        if helyes_valasz == 1:
             # print('Ön a négyzet kerület, terület számítását választotta,')
             print(szöveg1, 'négyzet', szöveg2)
             a = float(input('Adja meg a négyzet oldalát: '))
@@ -109,7 +120,7 @@ while (True) :
             T = a ** 2
             print('A négyzet kerülete:', K, 'területe:', T)
             break
-        elif valasztas == 2:
+        elif helyes_valasz == 2:
             # print('Ön a téglalap kerület, terület számítását választotta,')
             print(szöveg1, 'téglalap', szöveg2)
             a = float(input('Adja meg a téglalap egyik oldalát: '))
@@ -118,7 +129,7 @@ while (True) :
             T = a * b
             print('A téglalap kerülete:', K, 'területe:', T)
             break
-        elif valasztas == 3:
+        elif helyes_valasz == 3:
             # print('Ön a rombusz kerület, terület számítását választotta,')
             print(szöveg1, 'rombusz', szöveg2)
             a = float(input('Adja meg a rombusz oldalát: '))
@@ -127,7 +138,7 @@ while (True) :
             T = a ** 2 * (math.sin(alfa * 0.017453292519943))
             print('A rombusz kerülete:', K, 'területe:', round(T, 4))
             break
-        elif valasztas == 4:
+        elif helyes_valasz == 4:
             # print('Ön a kör kerület, terület számítását választotta,')
             print(szöveg1, 'kör', szöveg2)
             r = float(input('Adja meg a kör sugarát: '))
@@ -135,14 +146,9 @@ while (True) :
             T = r ** 2 * math.pi
             print('A kör kerülete:', round(K, 4), 'területe:', round(T, 4))
             break
-    if valasztas > 5 :
-        print('Nem választotta egyik lehetőséget sem !!!')
-    if valasztas == 5:
-        print("Ön kilépett a programból!")
-        break
-     elif valasztas < 0:
-        print("Negatív szám , nem elfogadható!!")
-        break
+        elif helyes_valasz < 0:
+            print("Negatív szám , nem elfogadható!!")
+            break
 
 szam3 = int(input("Kérek egy számot: "))
 x = [int(a) for a in str(szam3)]
