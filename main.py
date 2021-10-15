@@ -4,36 +4,36 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
+#A Simple loop for exercise
+#fruits = ["apple", "banana", "cherry"]
+#for x in fruits:
+ #   print(x)
+  #  if x == "banana":
+   #     break
 
-#Creates a Quiz where u can have as many question as you like and outputs your score too!
+
+#Reverse a string.
+#def reverse(x):
+ #   return x[::-1]
+
+#mytext = reverse("Reverse this string")
+#print(mytext)
+
+
+#Converts the input to Kg or Lbs.
+
+#weight = int(input("Give me a weight: "))
+#measurement = input("Kg or Lbs: ? ")
+#if measurement == "Kg":
+ #   converted = weight / 0.45
+  #  print("Your weight in lbs: ", converted)
+
+#elif measurement == "Lbs":
+ #   converted = weight * 0.45
+  #  print("Your weight in kgs: ", converted)
+
 '''
-!!!Hibás!!
-class Question_Maker :
 
-    def Question_maker (self):
-        score = 0
-        input_1 = [int(input("How many Question r u gonna have? : "))]
-        Question_List_Number = [1]
-        Question_List_Number.extend(input_1)
-
-        for x in Question_List_Number:
-            question = input("Give me a Question: ")
-            correct_answer_question = input("Give me the correct answer: ")
-            print(question)
-
-            answer = input("")
-            if answer == correct_answer_question :
-                score += 1
-                print("True","Your score: ", score)
-            else :
-                score -= 1
-                print("You are wrong!","Your score: ", score)
-
-
-MyQuestion_Maker = Question_Maker()
-MyQuestion_Maker.Question_maker()
-'''
-'''
 # Működő , helyes változat!
 def Question_maker ():
     input_2 = int(input("How many question? : "))
@@ -43,13 +43,11 @@ def Question_maker ():
     score = 0
     Questions = []
     Correct_Answers = []
-
     while i <= input_2:
         question = input("Give me a Question: ")
         correct_answer_question = input("Give me the correct answer: ")
         Questions.append(question) , Correct_Answers.append(correct_answer_question)
         i += 1
-
     while x < len(Questions):
         print(Questions[y])
         answer = input("Answer: ")
@@ -61,35 +59,35 @@ def Question_maker ():
             score -= 1
         x += 1
         y += 1
-
     print("Your score: ", score)
-
 Question_maker()
 
+
+#This is a Elevator Simulator!
+# Loops through as many times as many user is set to.
+user = [1,2]
+current_floor = [0]
+NumberOfFloors = [1, 2, 3, 4, 5, 6, 7]
+for x in user :
+    selected_floor = int(input("Please select a floor between 1-7: "))
+    indice = [floors]
+    selected_element = []
+    for index in indice:
+        selected_element.append(NumberOfFloors[index-1])
+        print("You arrived at floor:",selected_element)
+    if current_floor == 0 or current_floor[-1] == floors:
+        print("Already here")
+    current_floor.append(floors)
 '''
 
-'''
-szam1 = int(input("Első szam: "))
-szam2 = int(input("Masodik szam: "))
-szam3 = int(input("Harmadik szam: "))
-eredmeny = szam1+szam2+szam3 / 3
-print("Szamtani közép: ",eredmeny)
-'''
-
-'''
-vezetek = input("Vezetek: ")
-kereszt = input("Kereszt: ")
-teljes_nev = vezetek + "  " + kereszt
-
-print("",teljes_nev )
 '''
 import math
 def Checking(i):
     i = input("Válasszon: ")
-    try :
+    try:
         y = math.floor(float(i))
         return y
-    except:
+    except :
         print("Helytelen tipus!!!")
 
 
@@ -150,6 +148,87 @@ while (True) :
             print("Negatív szám , nem elfogadható!!")
             break
 
-szam3 = int(input("Kérek egy számot: "))
-x = [int(a) for a in str(szam3)]
-print(x)
+
+'''
+
+'''
+Given a string s, find the length of the longest substring without repeating characters.
+class Solution(object):
+    def lengthOfLongestSubstring(s: str) -> int:
+        left = 0
+        right = 0
+        max_len = 0
+        d = {}
+        while left < len(s):
+            if s[left] in d and d[s[left]] >= right:
+                right = d[s[left]] + 1
+            max_len = max(max_len, left - right +1)
+            d[s[left]] = left
+            left += 1
+        print(max_len)
+        return max_len
+
+
+megoldás = Solution
+megoldás.lengthOfLongestSubstring("wkevwkkk")
+'''
+
+
+'''
+#Brute Force approach
+def twoSum():
+    nums = [9,2,3,6,11]
+    target = 9
+    left = 0
+    right = 1
+    for i in range(len(nums)):
+        sum = nums[left] + nums[right]
+        if sum == target :
+            print(left,right)
+            break
+        else :
+            left += 1
+            right += 1
+
+twoSum()
+
+#Cleaner Approach
+nums = [9,2,3,6,11]
+target = 9
+def two_2_Sum ():
+    for right in range(len(nums)):
+        for left in range(right + 1, len(nums)):
+            if nums[left] == target - nums[right]:
+                return [left, right]
+                
+                
+
+#Hash table approach
+def twoSum(self,nums,target):
+    hash_table = {}
+    for i in range (len(nums)):
+        complemment = target -nums[i]
+        if complemment not in hash_table:
+            hash_table[nums[i]]
+        else:
+            return [hash_table[complemment],i]
+            
+            
+            
+def nagyobbSzam ():
+    a = int(input("Kérek Egy számot: "))
+    b = int(input("Kérek Egy másik számot: "))
+    if a > b :
+        print(a)
+    else:
+        print(b)
+
+nagyobbSzam()
+
+
+my_string = input("Kérek egy stringet: ")
+s = my_string.split()
+print(s)            
+            
+'''
+
