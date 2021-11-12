@@ -233,3 +233,60 @@ print(s)
             
 '''
 
+#<---------------------LeetCode Problems------------------------->
+'''
+#You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. 
+#The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+s = [1,2,3,4]
+a = ''.join(map(str, s))
+b = int(a) + 1
+c = str(b)
+print( list(map(int, c)))
+
+#2
+#Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string.
+#A word is a maximal substring consisting of non-space characters only.
+#Egysoros megoldás
+return len(s.strip().split(' ')[-1])
+
+
+#3
+#Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+ hash_table = dict()
+        for i in range(len(nums)):
+            num = nums[i]
+            complemment = target - nums[i]
+            if num in hash_table:
+                return [hash_table[num], i]
+            else:
+               hash_table[complemment] = i
+               
+               
+#4
+#Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+nums = [1,3,4,6,9]
+target = 6
+left = 0
+right = len(nums) - 1
+while left <= right:
+ # checking middle position
+    idx = (left + right) // 2
+    num = nums[idx]
+    if num == target:
+        print(idx)
+    # halving the range
+    if num < target:
+        left = idx + 1
+    else:
+        right = idx - 1
+    # target not  found
+    print(left)
+
